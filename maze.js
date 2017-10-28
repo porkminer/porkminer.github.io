@@ -78,6 +78,9 @@ function keyPressed(){
     if (keyCode == 40){
         player.moveDown();
     }
+    if (keyCode == 82){
+        window.location = "https://porkminer.github.com";
+    }
 }
 function makemaze(){
     if (current){
