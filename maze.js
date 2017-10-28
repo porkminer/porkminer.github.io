@@ -12,6 +12,7 @@ let end = Math.floor(Math.random() * (39 - 0 + 1), 10);
 let player = new Player(0,0,size,size);
 let img;
 let img2;
+let steps = 0;
 function setup(){
     createCanvas(h,w);
     frameRate(100);
@@ -63,6 +64,9 @@ function draw(){
         text("YOU WIN", 75,h/2);
         player.won = true;
     }
+    textSize(32);
+    fill(0,255,0);
+    text("Steps: " + steps, 0,0);
    
 }
 function keyPressed(){

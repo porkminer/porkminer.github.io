@@ -10,6 +10,7 @@ Player.prototype.moveUp = function(){
     if (this.j > 0 && grid[this.i + this.j * cells].walls[0] == false && this.won == false){
         this.j--;
         grid[this.i + this.j * cells].visited = false;
+        steps++;
     }
 }
 
@@ -17,6 +18,7 @@ Player.prototype.moveDown = function(){
     if (this.j < 39 && grid[this.i + this.j * cells].walls[2] == false && this.won == false){
         this.j++;
         grid[this.i + this.j * cells].visited = false;
+        steps++;
     }
 }
 
@@ -24,6 +26,7 @@ Player.prototype.moveLeft = function(){
     if (this.i > 0 && grid[this.i + this.j * cells].walls[3] == false && this.won == false){
         this.i--;
         grid[this.i + this.j * cells].visited = false;
+        steps++;
     }
 }
 
@@ -31,6 +34,7 @@ Player.prototype.moveRight = function(){
     if (this.i < 39 && grid[this.i + this.j * cells].walls[1] == false && this.won == false){
         this.i++;
         grid[this.i + this.j * cells].visited = false;
+        steps++;
     }
 }
 
