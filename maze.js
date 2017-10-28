@@ -1,7 +1,7 @@
 
 
-let size = 40;
-let cells = 20;
+let size = 10;
+let cells = 80;
 let h = cells * size;
 let w = cells * size;
 let grid = [];
