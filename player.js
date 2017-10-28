@@ -43,7 +43,7 @@ Player.prototype.draw = function(){
     noStroke();
     ellipse(this.i * 20 + 10, this.j * 20 + 10, 20); */
     if (!this.won){
-        image(img,this.i * size + 2, this.j * size + 2, (size / 2 + (size / 4), (size / 2 + (size / 4));
+        image(img,this.i * size + 2, this.j * size + 2, (size / 2 + (size / 4), (size / 2 + (size / 4)));
     } else {
         image(img2,this.i * size, this.j * size, size, size);
     }
