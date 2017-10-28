@@ -31,7 +31,7 @@ function Cell(i,j){
             fill(255,255,255, 100);
             rect(this.x,this.y,size,size);
             fill(0,0,200);
-            rect(this.x+5, this.y+5, size/2, size/2);
+            rect(this.x+7, this.y+7, size/4, size/4);
         }
     }
 
