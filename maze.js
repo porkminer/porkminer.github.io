@@ -66,7 +66,7 @@ function draw(){
     }
     textSize(32);
     fill(0,255,0);
-    text("Steps: " + steps, 0,0);
+    text("Steps: " + steps, 0,32);
    
 }
 function keyPressed(){
