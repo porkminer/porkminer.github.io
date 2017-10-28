@@ -19,28 +19,23 @@ let swipe;
 let DeltaX = 0;
 let DeltaY = 0;
 function setup(){
-    canvas = createCanvas(h,w);
+    createCanvas(h,w);
    
-    document.addEventListener("DOMContentLoaded", function(event){
-        mc = new Hammer.Manager(canvas);
-        swipe = new Hammer.Swipe();
-        mc.add(swipe);
-        manager.on('swipe', function(e) {
-            DeltaX = DeltaX + e.deltaX;
-            DeltaY = DeltaY + e.deltaY;
-            var direction = e.offsetDirection;
-            if (direction == DIRECTION_UP){
-                player.moveUp();
-            } else if (direction == DIRECTION_DOWN){
-                player.moveDown();
-            } else if (direction == DIRECTION_LEFT){
-                player.moveLeft();
-            } else if (direction == DIRECTION_RIGHT){
-                player.moveRight();
-            }
+    var options = {
+        preventDefault: true
+      };
     
-        });
-    });
+      // document.body registers gestures anywhere on the page
+      var hammer = new Hammer(document.body, options);
+      hammer.get('swipe').set({
+        direction: Hammer.DIRECTION_ALL
+      });
+    
+      hammer.on("swipeup", swipeup);
+      hammer.on("swipedown", swipedown);
+      hammer.on("swipeleft", swipeleft);
+      hammer.on("swiperight", swiperight);
+    
 
     frameRate(100);
     img = loadImage("smile.gif");
@@ -57,6 +52,18 @@ function setup(){
     player.i = grid[start].i;
     player.j = grid[start].j;
     makemaze();
+}
+function swiperight(event){
+    player.moveRight();
+}
+function swipeleft(event){
+    player.moveLeft();
+}
+function swipedown(event){
+    player.moveDown();
+}
+function swipeup(event){
+    player.moveUp();
 }
 
 function draw(){
