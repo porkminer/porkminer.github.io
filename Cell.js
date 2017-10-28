@@ -39,6 +39,7 @@ function Cell(i,j){
         fill(200,0,200);
         noStroke();
         rect(this.x, this.y, 20, 20);
+        noFill();
         stroke(255);
         if (this.walls[0]){
             line(this.x, this.y, this.x+size, this.y);
