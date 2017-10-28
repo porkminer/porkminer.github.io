@@ -20,24 +20,7 @@ let DeltaX = 0;
 let DeltaY = 0;
 function setup(){
     canvas = createCanvas(h,w);
-    mc = new Hammer.Manager();
-    swipe = new Hammer.Swipe();
-    mc.add(swipe);
-    manager.on('swipe', function(e) {
-        DeltaX = DeltaX + e.deltaX;
-        DeltaY = DeltaY + e.deltaY;
-        var direction = e.offsetDirection;
-        if (direction == DIRECTION_UP){
-            player.moveUp();
-        } else if (direction == DIRECTION_DOWN){
-            player.moveDown();
-        } else if (direction == DIRECTION_LEFT){
-            player.moveLeft();
-        } else if (direction == DIRECTION_RIGHT){
-            player.moveRight();
-        }
-
-    });
+   
     frameRate(100);
     img = loadImage("smile.gif");
     img2 = loadImage("15.gif");
@@ -177,3 +160,26 @@ function removeWalls(a,b){
         b.walls[2] = false;
     }
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function(event){
+    mc = new Hammer.Manager(canvas);
+    swipe = new Hammer.Swipe();
+    mc.add(swipe);
+    manager.on('swipe', function(e) {
+        DeltaX = DeltaX + e.deltaX;
+        DeltaY = DeltaY + e.deltaY;
+        var direction = e.offsetDirection;
+        if (direction == DIRECTION_UP){
+            player.moveUp();
+        } else if (direction == DIRECTION_DOWN){
+            player.moveDown();
+        } else if (direction == DIRECTION_LEFT){
+            player.moveLeft();
+        } else if (direction == DIRECTION_RIGHT){
+            player.moveRight();
+        }
+
+    });
+})
