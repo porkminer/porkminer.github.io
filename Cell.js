@@ -30,6 +30,8 @@ function Cell(i,j){
             noStroke();
             fill(255,255,255, 100);
             rect(this.x,this.y,size,size);
+            fill(0,0,200);
+            rect(this.x+10, this.y+10, size/2, size/2);
         }
     }
 
