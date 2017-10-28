@@ -1,6 +1,6 @@
 
 
-let size = 20;
+let size = 40;
 let cells = 40;
 let h = cells * size;
 let w = cells * size;
