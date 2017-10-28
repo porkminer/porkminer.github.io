@@ -31,14 +31,14 @@ function Cell(i,j){
             fill(255,255,255, 100);
             rect(this.x,this.y,size,size);
             fill(0,0,200);
-            rect(this.x+9, this.y+9, size/4, size/4);
+            rect(this.x+(size / 2 - 1), this.y+(size / 2 - 1), size/4, size/4);
         }
     }
 
     this.drawse = function(){
         fill(200,0,200);
         noStroke();
-        rect(this.x, this.y, 20, 20);
+        rect(this.x, this.y, size, size);
         noFill();
         stroke(255);
         if (this.walls[0]){
