@@ -20,6 +20,7 @@ let DeltaX = 0;
 let DeltaY = 0;
 let backgroundMusic;
 let cheering;
+let cheerID;
 let heartbeat;
 function setup(){
     createCanvas(h,w);
@@ -117,8 +118,8 @@ function draw(){
         fill(0,255,50);
         text("YOU WIN", 75,h/2);
         player.won = true;
-        if (!cheering.playing){
-            cheering.play();
+        if (!cheering.playing()){
+            cheerID = cheering.play();
         }
     }
     textSize(32);
@@ -175,7 +176,7 @@ function makemaze(){
 }
 
 function doheartbeat(){
-    if (Math.floor(Math.random() * (100 - 1 + 1), 10) > 80 && !heartbeat.playing){
+    if (Math.floor(Math.random() * (100 - 1 + 1), 10) > 80 && !heartbeat.playing()){
         heartbeat.fade(0,1, 1250);
         setTimeout(heartbeat.fade(1,0,1250), 1000);
         
