@@ -178,11 +178,14 @@ function makemaze(){
 function doheartbeat(){
     if (Math.floor(Math.random() * (100 - 1 + 1), 10) > 80 && !heartbeat.playing()){
         heartbeat.fade(0,1, 1250);
-        setTimeout(heartbeat.fade(1,0,1250), 1000);
+        setTimeout(fadeout, 1000);
         
     } 
 }
 
+function fadeout(){
+    heartbeat.fade(1,0, 1250);
+}
 
 function rTimer(){
     location.reload();
