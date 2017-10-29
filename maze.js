@@ -26,7 +26,8 @@ function setup(){
     backgroundMusic = new Howl({
         src: ['https://porkminer.github.io/background.mp3', 'https://porkminer.github.io/background.mp3'],
         autoplay: true,
-        loop: true
+        loop: true,
+        volume: 0.5
     });
     cheering = new Howl({
         src: ['https://porkminer.github.io/cheering.mp3', 'https://porkminer.github.io/cheering.mp3'],
@@ -116,7 +117,9 @@ function draw(){
         fill(0,255,50);
         text("YOU WIN", 75,h/2);
         player.won = true;
-        cheering.play();
+        if (!cheering.playing){
+            cheering.play();
+        }
     }
     textSize(32);
     fill(0,255,0);
