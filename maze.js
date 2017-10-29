@@ -18,9 +18,26 @@ let mc;
 let swipe;
 let DeltaX = 0;
 let DeltaY = 0;
+let backgroundMusic;
+let cheering;
+let heartbeat;
 function setup(){
     createCanvas(h,w);
-   
+    backgroundMusic = new Howl({
+        urls: ['https://porkminer.github.io/background.mp3'],
+        autoplay: true,
+        loop: true
+    });
+    cheering = new Howl({
+        urls: ['https://porkminer.github.io/cheering.mp3'],
+        autoplay: false,
+        loop: false
+    });
+    heartbeat = new Howl({
+        urls: ['https://porkminer.github.io/heartbeat.mp3'],
+        autoplay: false,
+        loop: false
+    });
     var options = {
         preventDefault: true
       };
@@ -52,6 +69,7 @@ function setup(){
     player.i = grid[start].i;
     player.j = grid[start].j;
     makemaze();
+    backgroundMusic.play();
 }
 function swiperight(event){
     player.moveRight();
@@ -68,6 +86,7 @@ function swipeup(event){
 
 function draw(){
     background(0);
+    doheartbeat();
     //console.log(grid.length);
     /* if (current){
         current.visited = true;
@@ -97,6 +116,7 @@ function draw(){
         fill(0,255,50);
         text("YOU WIN", 75,h/2);
         player.won = true;
+        cheering.play();
     }
     textSize(32);
     fill(0,255,0);
@@ -149,6 +169,15 @@ function makemaze(){
             }
         }
     }
+}
+
+function doheartbeat(){
+    if (Math.floor(Math.random() * (100 - 1 + 1), 10) > 80){
+        heartbeat.fadeIn(1.0, 1250, function(){
+            heartbeat.fadeOut(0.0, 1250);
+        });
+        
+    } 
 }
 
 
