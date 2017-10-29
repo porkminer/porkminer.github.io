@@ -24,17 +24,17 @@ let heartbeat;
 function setup(){
     createCanvas(h,w);
     backgroundMusic = new Howl({
-        urls: ['https://porkminer.github.io/background.mp3'],
+        urls: ['https://porkminer.github.io/background.mp3', 'https://porkminer.github.io/background.mp3'],
         autoplay: true,
         loop: true
     });
     cheering = new Howl({
-        urls: ['https://porkminer.github.io/cheering.mp3'],
+        urls: ['https://porkminer.github.io/cheering.mp3', 'https://porkminer.github.io/cheering.mp3'],
         autoplay: false,
         loop: false
     });
     heartbeat = new Howl({
-        urls: ['https://porkminer.github.io/heartbeat.mp3'],
+        urls: ['https://porkminer.github.io/heartbeat.mp3', 'https://porkminer.github.io/heartbeat.mp3'],
         autoplay: false,
         loop: false
     });
