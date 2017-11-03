@@ -19,14 +19,16 @@ let swipe;
 let DeltaX = 0;
 let DeltaY = 0;
 let backgroundMusic;
+let bgmID;
 let cheering;
 let cheerID;
 let heartbeat;
+let heartbeatID;
 function setup(){
     createCanvas(h,w);
     backgroundMusic = new Howl({
         src: ['https://porkminer.github.io/background.mp3', 'https://porkminer.github.io/background.mp3'],
-        autoplay: true,
+        autoplay: false,
         loop: true,
         volume: 0.5
     });
@@ -71,7 +73,10 @@ function setup(){
     player.i = grid[start].i;
     player.j = grid[start].j;
     makemaze();
-    backgroundMusic.play();
+    bgmID = backgroundMusic.play();
+    heartbeatID = heartbeat.play();
+    heartbeat.fade(1,0,100, heartbeatID);
+    console.log("music and sound crap");
 }
 function swiperight(event){
     player.moveRight();
@@ -177,14 +182,15 @@ function makemaze(){
 
 function doheartbeat(){
     if (Math.floor(Math.random() * (100 - 1 + 1), 10) > 80 && !heartbeat.playing()){
-        heartbeat.fade(0,1, 1250);
+        backgroundMusic.fade(1,0,1000, bgmID);
+        heartbeat.fade(0,1, 1000, heartbeatID);
         setTimeout(fadeout, 1000);
         
     } 
 }
 
 function fadeout(){
-    heartbeat.fade(1,0, 1250);
+    heartbeat.fade(1,0, 1000, heartbeatID);
 }
 
 function rTimer(){
