@@ -7,8 +7,8 @@ let w = cells * size;
 let grid = [];
 let current = undefined;
 let stack = [];
-let start = Math.floor(Math.random() * ((cells -1) - 0 + 1), 10);
-let end = Math.floor(Math.random() * ((cells -1) - 0 + 1), 10);
+let start = Math.floor(Math.random() * ((cells -1) - 1 + 1), 10);
+let end = Math.floor(Math.random() * ((cells -1) - 1 + 1), 10);
 let player = new Player(0,0,size,size);
 let img;
 let img2;
@@ -116,6 +116,8 @@ function draw(){
         grid[start].drawse();
         if (grid.length-end < 0){
             end = grid.length;
+        } else if(end == 0){
+            end = 1;
         }
         grid[grid.length-end].drawse();
     }
