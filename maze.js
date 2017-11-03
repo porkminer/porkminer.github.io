@@ -114,6 +114,9 @@ function draw(){
     if (stack.length == 0){
         //setTimeout(rTimer, 10000);
         grid[start].drawse();
+        if (grid.length-end < 0){
+            end = grid.length;
+        }
         grid[grid.length-end].drawse();
     }
     player.draw();
